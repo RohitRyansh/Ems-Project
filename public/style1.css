@@ -1,0 +1,536 @@
+ul li
+{
+    list-style-type: none;
+    color: white;
+    width: 200px;
+}
+h3
+{
+    color: black;
+    text-align: left;
+}
+body
+{
+    background-color: rgb(243,244,246);
+}
+.createForm
+{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 600px;
+    border: 1px solid black;
+    padding: 20px;
+}
+.table
+{
+    margin-top: 30px;
+    text-align: left;
+}
+.table-heading
+{
+    background-color:azure;
+}
+#dropdownMenuButton1
+{
+    background-color: #fff;
+    color: black;
+    border-radius: 3px;
+    width: 180px;
+    text-align: left;
+}
+a
+{
+    text-decoration: none !important;
+}
+.createButtons
+{
+    color: white;
+}
+.mainContent
+{
+    display: flex;
+    justify-content: space-between;
+}
+.content1
+{
+    background-color: darkblue;
+    height: 100vh;
+    width: 280px;
+    position: fixed;
+}
+.dashboard
+{
+    margin-left: 16%;
+    margin-top: -40rem;
+    background-color:azure;
+    padding: 30px;
+    border: 1px solid black;
+}
+#superAdminButton
+{
+    background-color: #fff;
+    color: black;
+    border: none;
+}
+.icon
+{
+    border: none;
+}
+.content1 a
+{
+    color: #fff;
+    text-decoration: none;
+}
+.navcontent
+{
+    padding-left: 0;
+}
+.content1 ul li
+{
+    padding: 30px; 
+}
+.navcontent li:hover
+{
+    color: darkblue;
+    background-color:  rgb(243,244,246);
+    border-radius: 10px;
+    width: 100%;
+}
+.navlink:hover
+{
+    color: darkblue;
+    border-radius: 10px;
+    width: 100%;
+}
+.errorMessage{
+    color: red;
+    text-align: left;
+}
+.active
+{
+    background: none;
+    border: none;
+    color: white;
+}
+.index a
+{
+    text-decoration: none;
+    color: white;
+}
+.succesmessage
+{
+    color: green;
+    padding: 20px;
+    background-color: lightgreen;
+    text-align: left;
+}
+.dangermessage
+{
+    color: rgb(26, 2, 2);
+    padding: 20px;
+    background-color: lightcoral;
+    text-align: left;
+}
+.deletebuttons
+{
+    background: none;
+    border: none;
+    margin-left: 20px;
+    margin-top: 0;
+}
+.index
+{
+    width: 80%;
+    text-align: right;
+    height: 10vh;
+    padding: 17px 0;
+    background-color: lightcyan;
+    margin-left: 19%;
+}
+.courses
+{
+    margin-left: 16%;
+    border: 1px solid black;
+}
+a.dropdown-item
+{
+    color: black;
+}
+.allcontent
+{
+    margin-top: 30px;
+}
+.allUser
+{
+    display: flex;
+    justify-content: space-between;
+}
+.all
+{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 20px 50px 0;
+}
+.all1
+{
+    display: flex;
+}
+.all2
+{
+    display: flex;
+    padding-right: 20px;
+}
+.all2 div
+{
+    padding-right: 30px;
+}
+.all1 div
+{
+    margin-right: 50px;
+}
+.d-flex
+{
+    width: 200px;
+}
+.d-flex1
+{
+    display: flex;
+}
+.nav
+{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 10px;
+}
+.nav1
+{
+    display: flex;
+    margin-right: 10px;
+}
+.nav1 button
+{
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+.courseNav ul
+{
+    border-bottom: 1px solid black;
+    display: flex;
+}
+#alinks
+{
+    color: black;
+}
+.courseNav ul li
+{
+    color: black;
+    font-size: 15px;
+    padding: 0;
+}
+.CourseCreate
+{
+    display: flex;
+    flex-direction: column;
+}
+.CourseCreate label
+{
+    margin: 20px 0;
+}
+.CourseCreate input
+{
+    padding: 10px;
+}
+.courses1
+{
+    width: 500px;
+    border: 1px solid black;
+    padding: 20px;
+}
+.courses1 input[type='submit']
+{
+    width: 200px;
+    margin: 20px 0 0 130px;
+}
+.course-list{
+    background-color: white;
+    margin:0 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 1rem;
+}
+.course-list:hover{
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.2);
+}
+.course-detail{
+    display: flex;
+    gap: 10px;
+    text-align: left;
+}
+.course-detail p{
+    color: grey;
+}
+.course-image
+{
+    width: 200px;
+}
+.course-image img{
+    width: inherit;
+    object-fit: cover;
+    height: -webkit-fill-available;
+    border-radius: 10px;
+}
+
+.level-enrolled{
+    display: flex;
+    margin-top: 50px;
+    gap: 20px;
+}
+.level-enrolled p{
+    font-size: 12px;
+}
+
+.status-badge{
+    border-radius: 2px;
+    font-weight: bold;
+    padding: 4px 20px;
+    display: inline;
+    font-size: 10px;
+}
+#published{
+    background-color: rgb(209, 255, 209);
+    color: rgb(17, 142, 17);
+    border: 1px solid rgba(17, 142, 17, 0.5);
+}
+#draft{
+    background-color: rgba(183, 183, 183, 0.2);
+    color: rgb(155, 153, 153);
+    border: 1px solid rgb(179, 179, 179);
+}
+#archieved{
+    background-color: rgb(255, 188, 188);
+    color: rgb(255, 38, 38);
+    border: 1px solid rgba(255, 38, 38, 0.5);
+}
+.create-form{
+    background-color: white;
+    margin: 10px;
+    padding: 20px;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
+}
+.create-form h1{
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+}
+.btn-secondary{
+    margin-right: 10px;
+}
+.status-navigation{
+    margin-bottom: 0;
+
+}
+.status-navigation li{
+    list-style: none;
+    display: inline;
+    margin-right: 15px;
+    padding-bottom: 10px;
+}
+.status-navigation li:hover{
+    border-bottom: 1px solid black;
+}
+.status-navigation li a{
+    color: rgb(94, 93, 93);
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+}
+.status-active{
+    color: black !important;
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+}
+.course-head{
+    color: black;
+    text-decoration: none;
+}
+.course-head:hover{
+    color: black;
+}
+.course-view{
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.1);
+}
+.course-view img{
+    width: 200px;
+    object-fit: cover;
+    height: 200px;
+    border-radius: 10px;
+}
+.course-view-detail{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    color: rgb(86, 85, 85);
+}
+.course-view-detail p{
+    color: grey;
+}
+.course-view-detail-left{
+    display: flex;
+    gap: 5rem;
+}
+.course-view-detail-right a{
+    background-color: rgba(225, 225, 225, 0.5);
+    text-decoration: none;
+    padding: 5px 15px;
+}
+.course-detail-bottom{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px;
+}
+.course-detail-bottom-elements p{
+    font-size: 14px;
+    color: black;
+    padding: 0;
+    margin: 0;
+}
+.course-detail-bottom-elements div{
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+a.unit-edit
+{
+    border: 1px solid black;
+    color: blue;
+}
+a.btn.btn-outline-secondary
+{
+    color: black;
+}
+.breadcrumb-item a
+{
+    color: blue;
+}
+div.drop-items-icon a
+{
+    color: black;
+}
+.form-label
+{
+    text-align: left;
+}
+.h4
+{
+    margin-top: 0;
+}
+.enrollments
+{
+    text-align: right;
+}
+.unitsView
+{
+    text-align: left;
+}
+div.mb-3
+{
+    text-align: left;
+}
+button.btn.btn-secondary
+{
+    margin-bottom: 10px;
+    width: 150px;
+    margin-top: 10px;
+
+}
+a.btn.btn-outline-secondary
+{
+    width: 100px;
+}
+button.btn.btn-secondary:nth-child(2)
+{
+    width: 300px;
+}
+.saveButtons
+{
+    display: flex;
+    align-items: center;
+}
+#pushButton
+{
+    width: 100px;
+}
+.lessons
+{
+    text-align: left;
+}
+.unit-detail
+{
+    display: flex;
+    justify-content: space-between;
+}
+.units
+{
+    display: flex;
+}
+.editAndDelete
+{
+    display: flex;
+}
+a.unit-edit
+{
+    border: none;
+    padding-right: 20px;
+}
+.unit-detail1
+{
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    background-color:lightcyan;
+    align-items: center;
+}
+.testDurations
+{
+    display: flex;
+    justify-content: space-between;
+}
+.breadcrumbs-mine
+{
+    display: flex;
+    justify-content: space-between;
+
+}
+.btn-group1
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: left; 
+}
+.options
+{
+    margin-bottom: 20px;
+    margin-right: 50%;
+}
+.btn-group2
+{
+    text-align: left;
+}
+.index a {
+    text-decoration: none;
+    color: black;
+}
+.testattempt
+{
+    display: flex;
+    justify-content: space-between;
+}
+
