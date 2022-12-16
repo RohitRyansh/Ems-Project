@@ -49,11 +49,10 @@ class UserController extends Controller
                 $user->restore();
                 $user->update($attributes);
             }
-        
+
         } else {
 
             $user = User::create($attributes);
-
         }
 
         Notification::send($user, new SetPasswordNotification(Auth::user()));
@@ -65,7 +64,6 @@ class UserController extends Controller
         }
 
         return back()->with('success', 'User Created Successfully.');   
-   
     }
 
     public function edit(User $user) {
@@ -73,7 +71,6 @@ class UserController extends Controller
         return view ('users.edit', [
             'user' => $user
         ]);
-
     }
 
     public function update(Request $request, User $user) {
@@ -86,8 +83,7 @@ class UserController extends Controller
         $user->update($attributes);
 
         return to_route('users.index')
-            ->with('success', 'User Updated Successfully.');
-        
+            ->with('success', 'User Updated Successfully.');  
     }
 
     public function delete(User $user) {
@@ -95,7 +91,6 @@ class UserController extends Controller
         $user->delete();
 
         return to_route('users.index')
-            ->with('success', 'User Deleted Successfully.');
-        
+            ->with('success', 'User Deleted Successfully.');   
     }
 }

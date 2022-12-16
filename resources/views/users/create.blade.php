@@ -16,7 +16,7 @@
 
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">First Name</label>
-                <input type="text" name="first_name" class="form-control" id="exampleFormControlInput1" placeholder="Enter First Name" required>
+                <input type="text" name="first_name" class="form-control" id="exampleFormControlInput1" placeholder="Enter First Name" value="{{old('first_name')}}" required>
                 <span class="errorMessage">
                     @error('first_name')
                      {{ $message }}      
@@ -26,7 +26,7 @@
 
             <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Last Name</label>
-                <input type="text" name="last_name" class="form-control" id="exampleFormControlInput1" placeholder="Enter Last Name" required>
+                <input type="text" name="last_name" class="form-control" id="exampleFormControlInput1" placeholder="Enter Last Name" value="{{old('last_name')}}" required>
                 <span class="errorMessage">
                     @error('last_name')
                      {{ $message }}      
@@ -36,7 +36,7 @@
             
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Email</label>
-                <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter Email Address" required>
+                <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter Email Address" value="{{old('email')}}" required>
                 <span class="errorMessage">
                     @error('email')
                      {{ $message }}      

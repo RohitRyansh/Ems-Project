@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Attendence;
 use App\Models\Leave;
 use Carbon\Carbon;
+use DateTime;
 use Illuminate\Support\Facades\Auth;
 
-//Wip line number (37 - 49)
 class UserAttendenceController extends Controller
 {
     public function index() {
@@ -16,7 +16,6 @@ class UserAttendenceController extends Controller
             'leaves' => Leave::visibleTo()
                 ->get()
         ]);
-
     }
 
     public function store() {
@@ -32,26 +31,36 @@ class UserAttendenceController extends Controller
                 
                 return back()->with('unsuccess', 'Your Today Attendence Already Done !');
             }
-            // Employe Absent is not complete
-            // else {
+            else {
 
-            //     $start = Carbon::parse($previous_attendence->date);
-            //     $end =  Carbon::parse($now);
+                $start = Carbon::parse($previous_attendence->date);
+                $end =  Carbon::parse($now);
             
-            //     $days = $end->diffInDays($start);
+                $diff = $end->diffInDays($start);
 
-            //     if ($days > 1) {
-            //         // dd('hi');    
-            //     }
-            // }
+                if ($diff > 1) {
+
+                    $date = new DateTime($now);
+
+                    for($i=1; $i<$diff; $i++) {
+
+                        $absent_days = date_modify($date, '-'.$i.'day');
+
+                        Attendence::create([
+                            'user_id' => Auth::id(),
+                            'date' => $absent_days,
+                        ]);
+                    }
+                }
+            }
         } 
+         
         Attendence::create([
             'user_id' => Auth::id(),
             'date' => $now,
             'status' => Attendence::PRESENT
         ]);
 
-        return back()->with('success', 'Your Today Attendence Done !');
-        
+        return back()->with('success', 'Your Today Attendence Done !');  
     }
 }

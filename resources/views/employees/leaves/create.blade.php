@@ -13,18 +13,10 @@
     <div class="create">
         <form action="{{ route ('employees.leaves.store') }}" method="post" class="createForm">
             @csrf
-            
-            <span class="errorMessage">
-                @if($errors->all())
-                @foreach ($errors->all() as $error) 
-                {{ $error }}      
-                @endforeach
-                @endif
-            </span>
 
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Subject</label>
-                <input type="text" name="subject" class="form-control" id="exampleFormControlInput1" placeholder="Enter Subject" required>
+                <input type="text" name="subject" class="form-control" id="exampleFormControlInput1" placeholder="Enter Subject" value="{{old('subject')}}" required>
                 <span class="errorMessage">
                     @error('subject')
                      {{ $message }}      
@@ -34,7 +26,7 @@
                 
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Description</label>
-                <textarea name="description" id="" cols="50" rows="15" required></textarea>
+                <textarea name="description" id="" cols="50" rows="15" required>{{old('first_name')}}</textarea>
                 <span class="errorMessage">
                     @error('description')
                      {{ $message }}      
@@ -44,7 +36,7 @@
                 
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Leave</label>
-                <input type="date" name="leave_date" class="form-control" id="exampleFormControlInput1" required>
+                <input type="date" name="leave_date" class="form-control" id="exampleFormControlInput1" value="{{old('leave_date')}}" required>
                 <span class="errorMessage">
                     @error('leave_date')
                         {{ $message }}      

@@ -14,7 +14,6 @@ class Leave extends Model
     CONST REJECT = 'reject';
     CONST PENDING = 'pending';
 
-
     protected $fillable = [
         'user_id',
         'subject',
@@ -44,4 +43,3 @@ class Leave extends Model
         ->where('status', '!=', self::REJECT);
     }
 }
-

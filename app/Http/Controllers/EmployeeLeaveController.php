@@ -37,8 +37,6 @@ class EmployeeLeaveController extends Controller
         Leave::create($attributes);  
         
         return to_route('employees.index')
-            ->with('success', 'Leave Request Sent Successfully !');    
-        
+            ->with('success', 'Leave Request Sent Successfully !');      
     }
-
 }

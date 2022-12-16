@@ -19,7 +19,7 @@ class LeaveManagementController extends Controller
                 ->get()
         ]);
     }
-    
+
     public function store(Leave $leave) {
         
         Attendence::create([
@@ -38,7 +38,6 @@ class LeaveManagementController extends Controller
 
         return to_route('users.requests.index')
             ->with('success', 'Leave Approved Successfully.');   
-
     }
 
     public function delete(Leave $leave) {
@@ -53,6 +52,5 @@ class LeaveManagementController extends Controller
 
         return to_route('users.requests.index')
             ->with('unsuccess', 'Leave Rejected Successfully.');   
-
     }
 }

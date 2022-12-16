@@ -32,7 +32,6 @@ class SetPasswordController extends Controller
             $url=$login->userAuthentication($request);
             
             return redirect($url->getTargetUrl());
-
         }
     }
 }

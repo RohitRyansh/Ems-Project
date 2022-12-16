@@ -58,7 +58,6 @@ Route::middleware('auth')->group(function () {
             
     });
 
-
     Route::controller(UserAttendenceController::class)->group(function () {
         
         Route::get ('/employees', 'index')->name ('employees.index');
@@ -85,8 +84,3 @@ Route::middleware('auth')->group(function () {
     Route::post ('/employees/leaves/store', [EmployeeLeaveController::class, 'store'])->name('employees.leaves.store');
 
 });
-
-
-
-
-

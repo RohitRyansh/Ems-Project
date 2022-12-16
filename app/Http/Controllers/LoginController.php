@@ -33,7 +33,7 @@ class LoginController extends Controller
                 return back()->with('error', 'Status Inactive');
             } 
         }
-
+        
         return back()->with('error', 'Wrong Credentials');
     }
     
