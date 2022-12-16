@@ -71,18 +71,18 @@ Route::middleware('auth')->group(function () {
 
         Route::get ('/users/leaves/requests', 'index')->name ('users.requests.index');
 
-        Route::get ('/employees/leaves/create', 'create')->name('employees.leaves.create');
+        Route::get ('/users/leaves/{leave}/approved', 'store')->name('leaves.request.store');
     
-        Route::post ('/employees/leaves/store', 'store')->name('employees.leaves.store');
+        Route::get ('/users/leaves/{leave}/reject', 'delete')->name('leaves.request.delete');
     });
 
     Route::get ('/logout', [LoginController::class, 'logout'])->name('users.logout');
 
     Route::post ('/users/{user}/active', [UserStatusController::class, 'userStatus'])->name('users.status');
 
-    Route::get ('/employees/leaves/approved/{leave}', [LeaveManagementController::class, 'store'])->name('leaves.request.store');
+    Route::get ('/employees/leaves/create', [EmployeeLeaveController::class, 'create'])->name('employees.leaves.create');
 
-    Route::get ('/employees/leaves/reject/{leave}', [LeaveManagementController::class, 'delete'])->name('leaves.request.delete');
+    Route::post ('/employees/leaves/store', [EmployeeLeaveController::class, 'store'])->name('employees.leaves.store');
 
 });
 
