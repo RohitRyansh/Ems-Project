@@ -12,6 +12,9 @@
         @if (session('success'))
             <p class="succesmessage"> {{ session('success') }} </p>
         @endif
+        @if (session('unsuccess'))
+            <p class="dangermessage"> {{ session('unsuccess') }} </p>
+        @endif
             <button type="button" class="btn btn-primary"><a href=" {{ route('employees.leaves.create') }} " class="createButtons">Leave</a></button> 
     <div class="content2">
         <table class="table">

@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
     
     Route::controller(UserController::class)->group(function () {
         
-        Route::get ('/users/listing','index')->name ('users.index');
+        Route::get ('/users','index')->name ('users.index');
         
         Route::get ('/users/create', 'create')->name ('users.create');
         
@@ -55,9 +55,7 @@ Route::middleware('auth')->group(function () {
         Route::post ('/users/{user}/update', 'update')->name ('users.update');
         
         Route::delete ('/users/{user}/delete', 'delete')->name ('users.delete');
-        
-        Route::get ('/users/Requests/listing','leaveRequest')->name ('users.requests.index');
-    
+            
     });
 
 
@@ -69,13 +67,18 @@ Route::middleware('auth')->group(function () {
         
     });
 
+    Route::controller(LeaveManagementController::class)->group(function () {
+
+        Route::get ('/users/leaves/requests', 'index')->name ('users.requests.index');
+
+        Route::get ('/employees/leaves/create', 'create')->name('employees.leaves.create');
+    
+        Route::post ('/employees/leaves/store', 'store')->name('employees.leaves.store');
+    });
+
     Route::get ('/logout', [LoginController::class, 'logout'])->name('users.logout');
 
     Route::post ('/users/{user}/active', [UserStatusController::class, 'userStatus'])->name('users.status');
-
-    Route::get ('/employees/leave/create', [EmployeeLeaveController::class, 'create'])->name('employees.leaves.create');
-
-    Route::post ('/employees/leave/store', [EmployeeLeaveController::class, 'store'])->name('employees.leaves.store');
 
     Route::get ('/employees/leaves/approved/{leave}', [LeaveManagementController::class, 'store'])->name('leaves.request.store');
 

@@ -20,14 +20,6 @@ class UserController extends Controller
         ]);
     }
 
-    public function leaveRequest() {
-
-        return view ('users.requestUsers', [
-            'leaves' => Leave::pendingLeaves()
-                ->get()
-        ]);
-    }
-
     public function create() {
         
         return view ('users.create');

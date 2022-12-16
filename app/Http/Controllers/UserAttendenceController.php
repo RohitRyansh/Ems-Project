@@ -30,7 +30,7 @@ class UserAttendenceController extends Controller
 
             if($previous_attendence->created_at->toDateString() == $now) {
                 
-                return back()->with('success', 'Your Today Attendence Already Done !');
+                return back()->with('unsuccess', 'Your Today Attendence Already Done !');
             }
             // Employe Absent is not complete
             // else {
