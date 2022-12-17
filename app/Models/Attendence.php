@@ -23,6 +23,24 @@ class Attendence extends Model
 
     public function scopePreviousAttendence($query) {
 
-        return $query->where('user_id', Auth::id())->latest();
+        return $query->where('user_id', Auth::id())
+            ->where('status', self::PRESENT)
+            ->latest();
+    }
+
+    public function scopePreviousLeave($query) {
+
+        return $query->where('user_id', Auth::id())
+            ->where('status', self::LEAVE)
+            ->latest();
+    }
+
+    public function scopeAttendenceMarked($query, $user, $date, $status) {
+
+        return $query->create([
+            'user_id' => $user,
+            'date' => $date,
+            'status' => $status
+        ]);
     }
 }

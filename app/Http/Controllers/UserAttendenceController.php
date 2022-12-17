@@ -27,39 +27,39 @@ class UserAttendenceController extends Controller
 
         if($previous_attendence) {
 
-            if($previous_attendence->created_at->toDateString() == $now) {
+            if($previous_attendence->date == $now) {
                 
                 return back()->with('unsuccess', 'Your Today Attendence Already Done !');
             }
             else {
-
-                $start = Carbon::parse($previous_attendence->date);
-                $end =  Carbon::parse($now);
             
-                $diff = $end->diffInDays($start);
+                $diff = Carbon::parse($now)
+                    ->diffInDays(Carbon::parse($previous_attendence->date));
 
                 if ($diff > 1) {
 
-                    $date = new DateTime($now);
-
                     for($i=1; $i<$diff; $i++) {
+
+                        $date = new DateTime($now);
 
                         $absent_days = date_modify($date, '-'.$i.'day');
 
-                        Attendence::create([
-                            'user_id' => Auth::id(),
-                            'date' => $absent_days,
-                        ]);
+                        $previous_leave = Attendence::PreviousLeave()->first();
+
+                        if($previous_leave) {
+
+                            if (new DateTime($previous_leave->date) == $absent_days){
+                                continue;
+                            }
+                        }
+
+                        Attendence::AttendenceMarked(Auth::id(), $absent_days, Attendence::ABSENT);
                     }
                 }
             }
-        } 
-         
-        Attendence::create([
-            'user_id' => Auth::id(),
-            'date' => $now,
-            'status' => Attendence::PRESENT
-        ]);
+        }
+
+        Attendence::AttendenceMarked(Auth::id(), $now, Attendence::PRESENT);
 
         return back()->with('success', 'Your Today Attendence Done !');  
     }
