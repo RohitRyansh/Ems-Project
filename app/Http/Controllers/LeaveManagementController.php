@@ -15,18 +15,25 @@ class LeaveManagementController extends Controller
     public function index() {
 
         return view ('users.requestUsers', [
-            'leaves' => Leave::pendingLeaves()
-                ->get()
+            'leaves' => Leave::pendingLeaves()    
+        ]);
+    }
+
+    public function show() {
+
+        return view ('users.usersLeaves', [
+            'leaves' => Leave::search (
+                request ([
+                    'leave',
+                    ]))
+                ->get(),
+            'leave_status' => Leave::get()
         ]);
     }
 
     public function store(Leave $leave) {
         
-        Attendence::create([
-            'user_id' => $leave->user_id,
-            'date' => $leave->leave_date,
-            'status' => Attendence::LEAVE
-        ]);
+        Attendence::AttendenceMarked($leave->user_id, $leave->leave_date, Attendence::LEAVE);
 
         $leave->update([
             'status' => Leave::APPROVE

@@ -20,20 +20,18 @@ class LoginController extends Controller
             'password' => 'required|min:8'
         ]);
 
-        $user = User::where('email', $attributes['email'])->first();
+        if (Auth::attempt($attributes)){
 
-        if ($user) {
-            
-            if ($user->status==User::ACTIVE && Auth::attempt($attributes)) {
+            if (Auth::user()->status == User::ACTIVE) {
                 
                 return redirect('/');
             }  
-            else {
-        
-                return back()->with('error', 'Status Inactive');
-            } 
+
+            Auth::logout();
+
+            return back()->with('error', 'Status Inactive');
         }
-        
+
         return back()->with('error', 'Wrong Credentials');
     }
     

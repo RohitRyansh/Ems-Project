@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -66,4 +65,20 @@ class User extends Authenticatable
 
         return $query->where('created_by', Auth::id());
     }
+
+    public function scopeSearch($query, array $filter) {
+
+        $query->when($filter['search'] ?? false, function($query, $search) {
+
+            return $query
+                ->where('first_name', 'like', '%'. $search . '%')
+                    ->orwhere('email', 'like', '%'. $search . '%');
+        });
+
+        $query->when($filter['newest']?? false, function($query) {
+
+            return $query->orderby('created_at', 'desc');
+        });
+    }
+
 }

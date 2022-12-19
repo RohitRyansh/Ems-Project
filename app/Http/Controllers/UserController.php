@@ -16,6 +16,11 @@ class UserController extends Controller
       
         return view ('users.index', [
             'users' => User::visibleTo(Auth::id())
+                ->search (
+                    request ([
+                        'search',
+                        'newest'
+                        ]))
                 ->get(),
         ]);
     }
@@ -38,7 +43,7 @@ class UserController extends Controller
             'created_by' => Auth::id()
         ];
 
-        $user = User::where('first_name', $attributes['first_name'])
+        $user = User::where('email', $attributes['email'])
             ->withTrashed()
             ->first();
 

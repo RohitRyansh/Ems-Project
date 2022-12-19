@@ -8,7 +8,7 @@
         </ol>
     </nav>
     @if (session('success'))
-            <p class="succesmessage"> {{ session('success') }} </p>
+        <p class="succesmessage"> {{ session('success') }} </p>
     @endif
     <div class="create">
         <form action="{{ route ('employees.leaves.store') }}" method="post" class="createForm">
@@ -23,10 +23,10 @@
                     @enderror
                 </span>
             </div>
-                
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Description</label>
-                <textarea name="description" id="" cols="50" rows="15" required>{{old('first_name')}}</textarea>
+
+            <div class="form-floating">
+                <textarea class="form-control" name="description" placeholder="Description here" id="floatingTextarea2" style="height: 100px" required>{{old('first_name')}}</textarea>
+                <label for="floatingTextarea2">Description</label>
                 <span class="errorMessage">
                     @error('description')
                      {{ $message }}      

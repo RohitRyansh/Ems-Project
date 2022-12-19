@@ -1,6 +1,18 @@
 @extends('layouts.main')
 @section('content')
 <div class="allcontent">
+    <div class="allUser">
+        <button class="btn btn-secondary dropdown-toggle"  id="dropdownMenuButton1" type="button" data-bs-toggle="dropdown">
+            Attendence
+        </button>
+        <ul class="dropdown-menu menu">
+            @foreach( $leave_status as  $leave)
+            <li>
+                <a class="dropdown-item" href=" {{ route('users.leaves')}}?leave={{ $leave->status }}">{{ $leave->status }} </a>
+            </li>
+            @endforeach
+        </ul> 
+    </div>
     @if (session('success'))
         <p class="succesmessage"> {{ session('success') }} </p>
     @endif
@@ -15,7 +27,6 @@
                 <th>Description</th>
                 <th>Date</th>
                 <th>Status</th>
-                <th>Action</th>
             </tr>
             @foreach ($leaves as  $leave)
             <tr>
@@ -24,14 +35,10 @@
                 <td> {{ $leave->description }} </td>
                 <td> {{ $leave->leave_date }} </td>
                 <td> {{ $leave->status }} </td>
-                <td>
-                    <button type="button" class="btn btn-primary"><a href=" {{ route('leaves.request.store', $leave) }} " class="createButtons">Approved</a></button> 
-                    <button type="button" class="btn btn-primary"><a href=" {{ route('leaves.request.delete', $leave) }} " class="createButtons">Reject</a></button> 
-                </td>
             </tr>
             @endforeach
         @else
-            <h1 style="text-align: center;">No Request Available</h1>       
+            <h1 style="text-align: center;">No Leave Exist</h1>        
         @endif
     </table>
 </div>

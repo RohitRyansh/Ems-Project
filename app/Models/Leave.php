@@ -42,4 +42,12 @@ class Leave extends Model
         ->where('leave_date', $leave)
         ->where('status', '!=', self::REJECT);
     }
+
+    public function scopeSearch($query, array $filter) {
+
+        $query->when($filter['leave'] ?? false, function($query, $search) {
+
+            return $query->where('status', $search);
+        });
+    }
 }

@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +17,8 @@ class Attendence extends Model
     protected $fillable = [
         'user_id',
         'date',
-        'status'
+        'status',
+        'penalty'
     ];
 
     public function scopePreviousAttendence($query) {
@@ -35,10 +35,10 @@ class Attendence extends Model
             ->latest();
     }
 
-    public function scopeAttendenceMarked($query, $user, $date, $status) {
+    public function scopeAttendenceMarked($query, $user_id, $date, $status) {
 
         return $query->create([
-            'user_id' => $user,
+            'user_id' => $user_id,
             'date' => $date,
             'status' => $status
         ]);

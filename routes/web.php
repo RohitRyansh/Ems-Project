@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
     
     Route::controller(UserController::class)->group(function () {
         
-        Route::get ('/users','index')->name ('users.index');
+        Route::get ('/users', 'index')->name ('users.index');
         
         Route::get ('/users/create', 'create')->name ('users.create');
         
@@ -69,6 +69,8 @@ Route::middleware('auth')->group(function () {
     Route::controller(LeaveManagementController::class)->group(function () {
 
         Route::get ('/users/leaves/requests', 'index')->name ('users.requests.index');
+
+        Route::get ('/users/leaves', 'show')->name ('users.leaves');
 
         Route::get ('/users/leaves/{leave}/approved', 'store')->name('leaves.request.store');
     

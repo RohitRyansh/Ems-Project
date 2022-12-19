@@ -8,25 +8,28 @@
 </head>
 <body>
     <div class="create">
-    <form action="{{route('setpassword', $user)}}" method="post" class="Edit">
-        @csrf
-        <label for="Password">Password</label>
-        <input type="password" name="password" id="">
-        <span class="errorMessage">
-            @error('password')
-            {{$message}}     
-            @enderror
-        </span>
-        <label for="ConfirmPassword">Confirm Password</label>
-        <input type="password" name="ConfirmPassword" id="">
-        <span class="errorMessage">
-            @error('ConfirmPassword')
-            {{$message}}     
-            @enderror
-        </span>
-        <input type="submit" value="Set Password">
-        <input type="hidden" value="{{$user->email}}" name="email">
-    </form>
+        <form action="{{route('setpassword', $user)}}" method="post" class="Edit">
+            @csrf
+            
+            <label for="Password">Password</label>
+            <input type="password" name="password" id="">
+            <span class="errorMessage">
+                @error('password')
+                {{$message}}     
+                @enderror
+            </span>
+
+            <label for="ConfirmPassword">Confirm Password</label>
+            <input type="password" name="ConfirmPassword" id="">
+            <span class="errorMessage">
+                @error('ConfirmPassword')
+                {{$message}}     
+                @enderror
+            </span>
+            
+            <input type="submit" value="Set Password">
+            <input type="hidden" value="{{$user->email}}" name="email">
+        </form>
     </div>
 </body>
 </html>

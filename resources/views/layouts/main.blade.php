@@ -19,6 +19,7 @@
                     <li><a href="{{ route ('employees.index') }}" class="navlink"></a></li>   
                     @else   
                     <li><a href=" {{ route ('users.index') }} " class="navlink">Users</a></li>
+                    <li><a href=" {{ route ('users.leaves') }} " class="navlink">Leaves</a></li>
                     <li><a href=" {{ route ('users.requests.index') }} " class="navlink">Requests</a></li>
                     @endif
                 </ul>
@@ -38,7 +39,7 @@
                 @yield('content')
             </div>
         </div>
-</body>
+    </body>
 </html>
 
                 

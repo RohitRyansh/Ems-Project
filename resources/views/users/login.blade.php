@@ -21,6 +21,7 @@
             @endif
             <form action=" {{  route ('users.authentication')  }} " method="post">
                 @csrf
+
                 <div class="formStyle">
                     <label for="">Email</label>
                     <input type="text" name="email" id="" required>
@@ -29,6 +30,7 @@
                          {{ $message }}      
                         @enderror
                     </span>
+
                     <label for="">Password</label>
                     <input type="password" name="password" id="" required>
                     <span class="errorMessage">
@@ -36,9 +38,11 @@
                          {{ $message }}      
                         @enderror
                     </span>
+
                     <div>
                         <input type="checkbox" name="" id=""> Remember me
                     </div>
+                    
                     <input type="submit" name="login" id="" value="Log in"> 
                 </div>
             </form>

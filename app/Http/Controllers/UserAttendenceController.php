@@ -31,6 +31,7 @@ class UserAttendenceController extends Controller
                 
                 return back()->with('unsuccess', 'Your Today Attendence Already Done !');
             }
+            // user absent functionality
             else {
             
                 $diff = Carbon::parse($now)
@@ -53,14 +54,26 @@ class UserAttendenceController extends Controller
                             }
                         }
 
-                        Attendence::AttendenceMarked(Auth::id(), $absent_days, Attendence::ABSENT);
+                        Attendence::create([
+                            'user_id' => Auth::id(),
+                            'date' =>  $absent_days,
+                            'status' => Attendence::ABSENT,
+                            'penalty' => 10
+                        ]);
                     }
                 }
             }
         }
 
-        Attendence::AttendenceMarked(Auth::id(), $now, Attendence::PRESENT);
+        $time = now()->toTimeString();
 
-        return back()->with('success', 'Your Today Attendence Done !');  
+        if ($time >= '09:30:00' && $time <= '20:00:00') {
+
+            Attendence::AttendenceMarked(Auth::id(), $now, Attendence::PRESENT);
+
+            return back()->with('success', 'Your Today Attendence Done !');  
+        }
+
+        return back()->with('unsuccess', 'Attendence Time has been Expired Today !');  
     }
 }
