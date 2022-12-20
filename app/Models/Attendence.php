@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -20,6 +21,8 @@ class Attendence extends Model
         'status',
         'penalty'
     ];
+
+   
 
     public function scopePreviousAttendence($query) {
 
@@ -42,5 +45,18 @@ class Attendence extends Model
             'date' => $date,
             'status' => $status
         ]);
+    }
+
+    public function scopeVisibleTo($query) {
+
+        return $query->where('user_id', Auth::id());
+    }
+
+    public function scopeSearch($query, array $filter) {
+
+        $query->when($filter['search'] ?? false, function($query, $search) {
+
+            return $query->where('date', 'like', '%'. $search . '%');
+        });
     }
 }

@@ -2,9 +2,16 @@
 @section('content')
 <div class="allcontent">
     <div class="nav">
-        <div>
-            <h2>Employee</h2>
-        </div>
+        <button class="btn btn-secondary dropdown-toggle"  id="dropdownMenuButton1" type="button" data-bs-toggle="dropdown">
+            Leaves
+        </button>
+        <ul class="dropdown-menu menu">
+            @foreach( $leave_status as  $leave)
+            <li>
+                <a class="dropdown-item" href=" {{ route('employees.index')}}?leave={{ $leave->status }}">{{ $leave->status }} </a>
+            </li>
+            @endforeach
+        </ul> 
         <div class="nav1">
             <button type="button" class="btn btn-primary"><a href="{{ route('employees.attendence.store')}}" class="createButtons">Present</a></button> 
         </div>

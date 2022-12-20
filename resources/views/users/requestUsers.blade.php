@@ -17,7 +17,7 @@
                 <th>Status</th>
                 <th>Action</th>
             </tr>
-            @foreach ($leaves as  $leave)
+            @foreach ($leaves as $leave)
             <tr>
                 <td>{{ $leave->user->full_name }}</td>
                 <td class="table-data"> {{ $leave->subject }}</td>

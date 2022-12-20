@@ -62,7 +62,9 @@ Route::middleware('auth')->group(function () {
         
         Route::get ('/employees', 'index')->name ('employees.index');
         
-        Route::get ('/employees/attendence', 'store')->name ('employees.attendence.store');
+        Route::get ('/employees/attendence/store', 'store')->name ('employees.attendence.store');
+
+        Route::get ('/employees/attendence', 'show')->name ('employees.attendence');
         
     });
 

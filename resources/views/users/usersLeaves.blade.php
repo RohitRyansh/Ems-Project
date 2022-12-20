@@ -3,7 +3,7 @@
 <div class="allcontent">
     <div class="allUser">
         <button class="btn btn-secondary dropdown-toggle"  id="dropdownMenuButton1" type="button" data-bs-toggle="dropdown">
-            Attendence
+            Leaves
         </button>
         <ul class="dropdown-menu menu">
             @foreach( $leave_status as  $leave)

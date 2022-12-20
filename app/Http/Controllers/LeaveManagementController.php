@@ -15,7 +15,8 @@ class LeaveManagementController extends Controller
     public function index() {
 
         return view ('users.requestUsers', [
-            'leaves' => Leave::pendingLeaves()    
+            'leaves' => Leave::pendingLeaves()
+                ->get()    
         ]);
     }
 
@@ -24,6 +25,7 @@ class LeaveManagementController extends Controller
         return view ('users.usersLeaves', [
             'leaves' => Leave::search (
                 request ([
+                    'search',
                     'leave',
                     ]))
                 ->get(),

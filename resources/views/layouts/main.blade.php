@@ -16,7 +16,10 @@
             <div class="content1">
                 <ul class="navcontent">
                     @if (Auth::user()->is_employee)
-                    <li><a href="{{ route ('employees.index') }}" class="navlink"></a></li>   
+                    <li><a href="{{ route ('employees.index') }}" class="navlink">Home</a></li>
+                    <li>
+                        <a href=" {{  route('employees.attendence') }} ">Attendence</a>
+                    </li>   
                     @else   
                     <li><a href=" {{ route ('users.index') }} " class="navlink">Users</a></li>
                     <li><a href=" {{ route ('users.leaves') }} " class="navlink">Leaves</a></li>
@@ -31,7 +34,6 @@
                              {{  Auth::user()->first_name }} 
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="">Account & Settings</a></li>
                             <li><a class="dropdown-item" href=" {{ route ('users.logout') }} ">Logout</a></li>
                         </ul>
                     </div>

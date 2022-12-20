@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Attendence;
 use App\Models\Leave;
+use App\Models\User;
 use Carbon\Carbon;
 use DateTime;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,13 @@ class UserAttendenceController extends Controller
 
         return view ('employees.index',[
             'leaves' => Leave::visibleTo()
-                ->get()
+                ->search(
+                request ([
+                    'search',
+                    'leave',
+                    ]))
+                ->get(),
+            'leave_status' => Leave::get()
         ]);
     }
 
@@ -75,5 +82,15 @@ class UserAttendenceController extends Controller
         }
 
         return back()->with('unsuccess', 'Attendence Time has been Expired Today !');  
+    }
+
+    public function show() {
+
+        return view ('employees.attendence',[
+            'attendences' => Attendence::VisibleTo()
+                ->search(
+                    request (['search']))
+                ->get()
+        ]);
     }
 }

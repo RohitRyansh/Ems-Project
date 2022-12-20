@@ -70,9 +70,8 @@ class User extends Authenticatable
 
         $query->when($filter['search'] ?? false, function($query, $search) {
 
-            return $query
-                ->where('first_name', 'like', '%'. $search . '%')
-                    ->orwhere('email', 'like', '%'. $search . '%');
+            return $query->where('first_name', 'like', '%'. $search . '%')
+                ->orwhere('email', 'like', '%'. $search . '%');
         });
 
         $query->when($filter['newest']?? false, function($query) {

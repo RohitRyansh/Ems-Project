@@ -75,6 +75,7 @@
                                     <a href=" {{  route('users.edit', $user) }} ">Edit User</a>
                                 </div>
                             </li>
+
                             <li>
                                 <form action=" {{ route('users.status', $user)}} " method="POST">
                                     @csrf
